@@ -219,7 +219,8 @@ def mostar_info(event):
     ids, name, desc, price, quantidade = get_info_ticket(list_buy)
     print(ids, name, desc, price, quantidade)
 
-    info3 = tk.Label(info_product, text=f"{name}\n\n{desc}\n\nPreço: {price} Quantidade: {quantidade}", font=('Arial', 12), width=0, height=0, bg='white', wraplength=390,
+    info3 = tk.Label(info_product, text=f"{name}\nq"
+                                        f"\n{desc}\n\nPreço: {price} Quantidade: {quantidade}", font=('Arial', 12), width=0, height=0, bg='white', wraplength=390,
                      justify="left")
     info3.place(x=10, y=10)
 
