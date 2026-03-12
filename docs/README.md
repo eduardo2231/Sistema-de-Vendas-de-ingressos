@@ -92,8 +92,3 @@ This project is licensed under the MIT License.
 * Add reporting and analytics features.
 
 ---
-
-## Screenshots
-
-![Main Screen](docs/screenshots/main_screen.png)
-![Ticket Details](docs/screenshots/ticket_details.png)
