@@ -1,42 +1,42 @@
-# 🎟️ Sistema de Vendas de Ingressos v0.1
+# 🎟️ Ticket Sales System v0.1
 
 [![Python](https://img.shields.io/badge/Python-3.13-blue?logo=python&logoColor=white)](https://www.python.org/)
 [![SQLite](https://img.shields.io/badge/SQLite-3.39-lightgrey?logo=sqlite&logoColor=white)](https://www.sqlite.org/)
-[![Status](https://img.shields.io/badge/Status-Em%20Desenvolvimento-yellow)](#)
+[![Status](https://img.shields.io/badge/Status-In%20Development-yellow)](#)
 
 ---
 
-## 🚀 Descrição
+## 🚀 Description
 
-Este é um **protótipo inicial** de um sistema de gerenciamento de ingressos desenvolvido em **Python**, usando **Tkinter** para a interface gráfica e **SQLite** como banco de dados.  
+This is an **initial prototype** of a ticket management system built with **Python**, using **Tkinter** for the graphical interface and **SQLite** as the database.  
 
-O sistema permite:  
-- Adicionar, listar e remover ingressos.  
-- Visualizar detalhes do ingresso selecionado.  
-- Simular compra de ingressos.  
-- Controlar quantidade e preço dos ingressos.
+The system allows you to:  
+- Add, list, and remove tickets  
+- View details of a selected ticket  
+- Simulate ticket purchases  
+- Manage ticket quantity and price
 
 ---
 
-## 🛠️ Tecnologias
+## 🛠️ Technologies
 
 - **Python 3.13**  
-- **Tkinter** para interface gráfica  
-- **SQLite** para banco de dados  
+- **Tkinter** for GUI  
+- **SQLite** for database  
 
 ---
 
-## 📝 Funcionalidades Futuras
+## 📝 Future Features
 
-- Sistema de login de usuários  
-- Relatórios de vendas   
-- Integração com pagamentos reais  
-- Interface mais responsiva e moderna  
+- User login system  
+- Sales reports  
+- Integration with real payment gateways  
+- More responsive and modern interface  
 
 ---
 
-## 💻 Como rodar
+## 💻 How to Run
 
-1. Clone este repositório:  
+1. Clone this repository:  
 ```bash
 git clone https://github.com/eduardo2231/Sistema-de-Vendas-de-ingressos.git
