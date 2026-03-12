@@ -32,6 +32,10 @@ def fechar_e_chamar(scren, x):
     elif x == 2:
         frame_remover_ingressos()
 
+def delete(ids):
+    cursor.execute("DELETE FROM ingressos WHERE id = ?", (ids,))
+    atualizar_lista()
+
 
 def atualizar_lista():
                                                                                       # Limpa a Treeview
@@ -121,12 +125,39 @@ def frame_remover_ingressos():
     for igresso in ingressos:
         list_remove.insert("", "end", values=igresso)
 
+
     def mostar_info_remove(event):
-        info_product = tk.Label(new_caixa, bg='white', width=50, height=37)
+        info_product = tk.Frame(new_caixa, bg='white', width=360, height=560)
         info_product.place(x=415, y=8)
+
+        idB, name, desc, price, quantidade = get_info_ticket(list_remove)
+
+        info2 = tk.Label(info_product, text=f"{name}\n\n{desc}\n\nPreço: {price} Quantidade: {quantidade}",
+                         font=('Arial', 12), width=0, height=0, bg='white', wraplength=390,
+                         justify="left")
+        info2.place(x=10, y=10)
+
+        button_buy = tk.Button(info_product, text='Remover', font=('Arial', 12), width=36, height=2,
+                               bg='white')
+        button_buy.place(x=15, y=500)
 
     list_remove.bind("<<TreeviewSelect>>", mostar_info_remove)
 
+def get_info_ticket(tree):
+
+    if not tree.selection():
+        return None
+    values = tree.selection()
+    valores = tree.item(values, "values")
+
+    valor_id = valores[0]
+
+    cursor.execute("SELECT * FROM ingressos WHERE id = ?", (valor_id,))
+    ingressos = cursor.fetchall()
+
+    # valores_descricao = valores[4]
+
+    return ingressos[0]
 
 def frame_ingressos_config():
     new = tk.Toplevel(screen, bg='grey')
@@ -182,16 +213,23 @@ def pagar():
     button_cancel.place(x=10, y=320)
 
 def mostar_info(event):
-    info_product = tk.Label(caixa, bg='white', width=58, height=30)
+    info_product = tk.Frame(caixa, bg='white', width=410, height=630)
     info_product.place(x=9, y=50)
+
+    ids, name, desc, price, quantidade = get_info_ticket(list_buy)
+    print(ids, name, desc, price, quantidade)
+
+    info3 = tk.Label(info_product, text=f"{name}\n\n{desc}\n\nPreço: {price} Quantidade: {quantidade}", font=('Arial', 12), width=0, height=0, bg='white', wraplength=390,
+                     justify="left")
+    info3.place(x=10, y=10)
+
+    button_buy = tk.Button(info_product, text='Comprar', font=('Arial', 12), width=40, height=2, command=pagar, bg='white')
+    button_buy.place(x=15, y=560)
 
 
 caixa = tk.Frame(screen, bg='lightgray', width=430, height=685)
 caixa.grid(column=1, row=0, padx=5, pady=5)
 caixa.grid_propagate(False)
-
-button_buy = tk.Button(caixa, text='Comprar', font=('Arial', 12), width=43, height=2, command=pagar, bg='white')
-button_buy.place(x=15, y=620)
 
 info = tk.Label(caixa, bg="lightgrey", font=('Arial', 18, "bold"), text="Loja de Ingressos")
 info.place(x=10, y=5)
