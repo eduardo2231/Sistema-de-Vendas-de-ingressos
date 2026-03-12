@@ -1,1 +1,5 @@
 
+*.db
+*.db-journal
+.venv
+__pycache__
